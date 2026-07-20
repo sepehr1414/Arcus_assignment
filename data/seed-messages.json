@@ -1,0 +1,51 @@
+[
+  {
+    "id": "msg-1001",
+    "from": "+15550001001",
+    "customerName": "Emma Clark",
+    "text": "Hi! Do you have the wireless headphones in stock?",
+    "timestamp": "2026-07-18T09:12:00.000Z"
+  },
+  {
+    "id": "msg-1002",
+    "from": "+15550001002",
+    "customerName": "James Miller",
+    "text": "Hello, where is my order #10432? It's been a week.",
+    "timestamp": "2026-07-18T10:45:30.000Z"
+  },
+  {
+    "id": "msg-1003",
+    "from": "+15550001003",
+    "customerName": "Sophia Turner",
+    "text": "Hi, is the water bottle available in blue?",
+    "timestamp": "2026-07-18T14:03:10.000Z"
+  },
+  {
+    "id": "msg-1004",
+    "from": "+15550001001",
+    "customerName": "Emma Clark",
+    "text": "And what colors does it come in?",
+    "timestamp": "2026-07-18T15:20:00.000Z"
+  },
+  {
+    "id": "msg-1005",
+    "from": "+15550001004",
+    "customerName": "Daniel Lee",
+    "text": "Good morning, I'd like to return an item. How does it work?",
+    "timestamp": "2026-07-19T08:30:00.000Z"
+  },
+  {
+    "id": "msg-1006",
+    "from": "+15550001004",
+    "customerName": "Daniel Lee",
+    "text": "It's fairly urgent, thanks.",
+    "timestamp": "2026-07-19T08:31:15.000Z"
+  },
+  {
+    "id": "msg-1007",
+    "from": "+15550001002",
+    "customerName": "James Miller",
+    "text": "Thanks!",
+    "timestamp": "2026-07-19T11:00:00.000Z"
+  }
+]

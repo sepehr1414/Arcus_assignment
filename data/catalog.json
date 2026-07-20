@@ -1,0 +1,66 @@
+[
+  {
+    "id": "p-001",
+    "name": "Wireless Headphones",
+    "category": "audio",
+    "color": "black",
+    "price": 129.0,
+    "inStock": true
+  },
+  {
+    "id": "p-002",
+    "name": "Water Bottle",
+    "category": "outdoor",
+    "color": "blue",
+    "price": 25.0,
+    "inStock": true
+  },
+  {
+    "id": "p-003",
+    "name": "Backpack",
+    "category": "bags",
+    "color": "grey",
+    "price": 89.0,
+    "inStock": false
+  },
+  {
+    "id": "p-004",
+    "name": "Desk Lamp",
+    "category": "home",
+    "color": "white",
+    "price": 45.0,
+    "inStock": true
+  },
+  {
+    "id": "p-005",
+    "name": "Coffee Mug",
+    "category": "home",
+    "color": "green",
+    "price": 15.0,
+    "inStock": true
+  },
+  {
+    "id": "p-006",
+    "name": "Notebook",
+    "category": "stationery",
+    "color": "black",
+    "price": 12.0,
+    "inStock": true
+  },
+  {
+    "id": "p-007",
+    "name": "Phone Case",
+    "category": "accessories",
+    "color": "clear",
+    "price": 19.0,
+    "inStock": true
+  },
+  {
+    "id": "p-008",
+    "name": "Running Shoes",
+    "category": "footwear",
+    "color": "red",
+    "price": 110.0,
+    "inStock": true
+  }
+]
