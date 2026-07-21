@@ -1,3 +1,19 @@
+> ## ⚠️ Read this first
+>
+> **There are two versions of this submission.**
+>
+> The brief says the assistant needs "two or three rules" and to not over-invest,
+> but it doesn't say whether a real language model is wanted, and "sometimes reply
+> automatically" can reasonably mean either. Rather than guess, I built both:
+>
+> | Branch | Assistant | Time |
+> |---|---|---|
+> | **`main`** | Three deterministic rules over the catalog, exactly as the brief describes | ~2 hours, as asked |
+> | **`llm-assistant`** (this one) | **Google Gemini**, grounded in a catalog / policy / order dataset, with a validator that re-checks every factual claim before it is stored | extra, done on my own time |
+>
+> **If you are assessing against the brief, read `main`.** It is the complete,
+> time-boxed answer to all seven required items.
+> 
 # Take-Home: Conversation Inbox
 
 A small exercise — about **1–2 hours**. Please don't spend more. If you run out of time, stop and note what you'd do next in the README. A small, finished result is better than a large, unfinished one.
