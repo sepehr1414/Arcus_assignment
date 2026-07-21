@@ -14,6 +14,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type {
+  Citations,
   Conversation,
   ConversationSummary,
   InboundMessage,
@@ -21,10 +22,11 @@ import type {
   Sender,
 } from "../../shared/types.js";
 
-const DATA_FILE = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  "../../data/inbox.json"
-);
+// INBOX_FILE lets the tests point the store at a scratch file so they don't
+// write into the real inbox.
+const DATA_FILE = process.env.INBOX_FILE
+  ? resolve(process.env.INBOX_FILE)
+  : resolve(dirname(fileURLToPath(import.meta.url)), "../../data/inbox.json");
 
 // conversationId (customer phone) -> Conversation
 const conversations = new Map<string, Conversation>();
@@ -125,12 +127,16 @@ function createConversation(msg: InboundMessage): Conversation {
  * `at` lets the caller place the reply in conversation time rather than wall
  * time: an auto-reply belongs immediately after the message it answers, which
  * matters when messages arrive with older timestamps than "now".
+ *
+ * `citations` records what a validated assistant reply was checked against, so
+ * the UI can show an agent which catalog entries back it up.
  */
 export function addReply(
   conversationId: string,
   text: string,
   sender: Extract<Sender, "assistant" | "agent">,
-  at?: string
+  at?: string,
+  citations?: Citations
 ): Message | undefined {
   const conversation = conversations.get(conversationId);
   if (!conversation) return undefined;
@@ -139,6 +145,36 @@ export function addReply(
     id: `${sender}-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     conversationId,
     sender,
+    text,
+    timestamp: at ?? new Date().toISOString(),
+    ...(citations ? { citations } : {}),
+  };
+  insertMessage(conversation, message);
+  seenMessageIds.add(message.id);
+  persist();
+  return message;
+}
+
+/**
+ * Record an internal note explaining why the assistant did not answer.
+ *
+ * Deliberately separate from `addReply`: a note is for the agent reading the
+ * thread, never for the customer, and keeping the two functions apart means a
+ * note cannot be produced by the code path that sends replies. It also does not
+ * count as answering — see `awaitingReply` below.
+ */
+export function addNote(
+  conversationId: string,
+  text: string,
+  at?: string
+): Message | undefined {
+  const conversation = conversations.get(conversationId);
+  if (!conversation) return undefined;
+
+  const message: Message = {
+    id: `system-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+    conversationId,
+    sender: "system",
     text,
     timestamp: at ?? new Date().toISOString(),
   };
@@ -161,14 +197,20 @@ export function listConversations(search?: string): ConversationSummary[] {
     })
     .sort((a, b) => b.lastMessageAt.localeCompare(a.lastMessageAt))
     .map((c) => {
-      const last = c.messages[c.messages.length - 1];
+      // Internal notes are not part of the conversation: they must not become
+      // the preview, must not inflate the message count, and above all must not
+      // look like an answer. A note stored after a customer's question would
+      // otherwise clear the amber "needs reply" flag and hide them from the
+      // agent — the whole signal the inbox is built around.
+      const conversationMessages = c.messages.filter((m) => m.sender !== "system");
+      const last = conversationMessages[conversationMessages.length - 1];
       return {
         id: c.id,
         customerName: c.customerName,
         customerPhone: c.customerPhone,
         preview: last?.text ?? "",
         lastMessageAt: c.lastMessageAt,
-        messageCount: c.messages.length,
+        messageCount: conversationMessages.length,
         // The customer spoke last, so nobody has answered them yet.
         awaitingReply: last?.sender === "customer",
       };

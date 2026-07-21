@@ -1,20 +1,12 @@
-# dependencies
 node_modules/
-
-# build output
 dist/
-client/dist/
 
-# misc
-.DS_Store
-*.log
+# Local editor / assistant state.
+.claude/
 
-# local env files
+# API keys — never commit.
 .env
-.env*.local
+.env.local
 
-# typescript
-*.tsbuildinfo
-
-# local data store (JSON persistence)
+# Runtime data: the JSON store the server writes to.
 data/inbox.json

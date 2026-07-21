@@ -330,6 +330,73 @@ p {
   color: rgba(255, 255, 255, 0.72);
 }
 
+/* Why the assistant stepped back. Full width and deliberately unlike a bubble:
+   this is a note to the agent, not something the customer ever saw. Amber,
+   because it means the same thing as the "needs reply" rail — a human is
+   required here. */
+.note-row {
+  align-self: stretch;
+  padding: 0.5rem 0.7rem 0.55rem;
+  border-left: 3px solid var(--signal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--signal-soft);
+  animation: rise 120ms ease-out;
+}
+
+.note-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.625rem;
+  color: var(--signal);
+}
+
+.note-label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.note-text {
+  margin-top: 0.2rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.note-foot {
+  margin-top: 0.3rem;
+  font-size: 0.625rem;
+  color: var(--muted);
+}
+
+/* What an auto-reply was checked against before it was allowed to send. Quiet
+   by default — it is reassurance for the agent, not part of the conversation. */
+.bubble-citations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #d5e3e6;
+  font-size: 0.625rem;
+}
+
+.citation-label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.citation {
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  background: var(--surface);
+  border: 1px solid #d5e3e6;
+  color: var(--accent);
+}
+
 .bubble-text {
   font-size: 0.875rem;
   line-height: 1.5;

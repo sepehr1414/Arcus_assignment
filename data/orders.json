@@ -1,0 +1,106 @@
+[
+  {
+    "orderNumber": "10432",
+    "customerPhone": "+15550001002",
+    "customerName": "James Miller",
+    "status": "in transit",
+    "placedAt": "2026-07-11T16:20:00.000Z",
+    "dispatchedAt": "2026-07-12T17:05:00.000Z",
+    "shippingOption": "Standard",
+    "carrier": "Cascade Post",
+    "trackingNumber": "CP481920347US",
+    "estimatedDelivery": "2026-07-22",
+    "items": [
+      { "productId": "p-017", "name": "Mechanical Keyboard", "quantity": 1, "unitPrice": 149.0 },
+      { "productId": "p-020", "name": "Desk Mat", "quantity": 1, "unitPrice": 32.0 }
+    ],
+    "total": 181.0
+  },
+  {
+    "orderNumber": "10433",
+    "customerPhone": "+15550001001",
+    "customerName": "Emma Clark",
+    "status": "delivered",
+    "placedAt": "2026-07-08T11:02:00.000Z",
+    "dispatchedAt": "2026-07-08T17:40:00.000Z",
+    "shippingOption": "Express",
+    "carrier": "Cascade Post",
+    "trackingNumber": "CP481773109US",
+    "estimatedDelivery": "2026-07-10",
+    "deliveredAt": "2026-07-10T14:12:00.000Z",
+    "items": [
+      { "productId": "p-009", "name": "Wireless Earbuds", "quantity": 1, "unitPrice": 79.0 }
+    ],
+    "total": 79.0
+  },
+  {
+    "orderNumber": "10434",
+    "customerPhone": "+15550001003",
+    "customerName": "Sophia Turner",
+    "status": "preparing",
+    "placedAt": "2026-07-20T09:45:00.000Z",
+    "dispatchedAt": null,
+    "shippingOption": "Standard",
+    "carrier": null,
+    "trackingNumber": null,
+    "estimatedDelivery": null,
+    "items": [
+      { "productId": "p-002", "name": "Water Bottle", "quantity": 2, "unitPrice": 25.0 },
+      { "productId": "p-015", "name": "Lunch Box", "quantity": 1, "unitPrice": 34.0 }
+    ],
+    "total": 84.0
+  },
+  {
+    "orderNumber": "10435",
+    "customerPhone": "+15550001004",
+    "customerName": "Daniel Lee",
+    "status": "delivered",
+    "placedAt": "2026-07-02T13:15:00.000Z",
+    "dispatchedAt": "2026-07-02T17:30:00.000Z",
+    "shippingOption": "Standard",
+    "carrier": "Cascade Post",
+    "trackingNumber": "CP481551882US",
+    "estimatedDelivery": "2026-07-07",
+    "deliveredAt": "2026-07-06T10:05:00.000Z",
+    "items": [
+      { "productId": "p-008", "name": "Running Shoes", "quantity": 1, "unitPrice": 110.0 }
+    ],
+    "total": 110.0
+  },
+  {
+    "orderNumber": "10436",
+    "customerPhone": "+15550001005",
+    "customerName": "Olivia Reed",
+    "status": "cancelled",
+    "placedAt": "2026-07-14T19:00:00.000Z",
+    "dispatchedAt": null,
+    "shippingOption": "Express",
+    "carrier": null,
+    "trackingNumber": null,
+    "estimatedDelivery": null,
+    "cancelledAt": "2026-07-15T08:20:00.000Z",
+    "cancelReason": "Cancelled at the customer's request before dispatch.",
+    "items": [
+      { "productId": "p-024", "name": "Coffee Grinder", "quantity": 1, "unitPrice": 95.0 }
+    ],
+    "total": 95.0
+  },
+  {
+    "orderNumber": "10437",
+    "customerPhone": "+15550001006",
+    "customerName": "Noah Bennett",
+    "status": "in transit",
+    "placedAt": "2026-07-18T07:55:00.000Z",
+    "dispatchedAt": "2026-07-18T17:10:00.000Z",
+    "shippingOption": "Standard",
+    "carrier": "Cascade Post",
+    "trackingNumber": "CP482044615US",
+    "estimatedDelivery": "2026-07-23",
+    "items": [
+      { "productId": "p-028", "name": "Laptop Stand", "quantity": 1, "unitPrice": 68.0 },
+      { "productId": "p-026", "name": "Wireless Mouse", "quantity": 1, "unitPrice": 59.0 },
+      { "productId": "p-022", "name": "Running Socks", "quantity": 2, "unitPrice": 18.0 }
+    ],
+    "total": 163.0
+  }
+]
